@@ -1,19 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
-Airport.create(name: 'San Francisco', code: 'SFO')
-Airport.create(name: 'New York Area', code: 'NYC')
-Airport.create(name: 'Thessaloniki', code: 'SKG')
-Airport.create(name: 'Berlin', code: 'TXL')
-Airport.create(name: 'London Heathrow', code: 'LHR')
-Airport.create(name: 'Rio de Janeiro', code: 'GIG')
-Airport.create(name: 'Palermo', code: 'PMO')
-Airport.create(name: 'Buenos Aires', code: 'BAI')
-Airport.create(name: 'Stockholm', code: 'ARN')
-Airport.create(name: 'Toronto', code: 'YYZ')
-Airport.create(name: 'Tokyo', code: 'HND')
+Airport.delete_all
+Flight.delete_all
+
+
+lhr = Airport.create(name: 'London', code: 'LHR')
+pmo = Airport.create(name: 'Palermo', code: 'PMO')
+skg = Airport.create(name: 'Thessaloniki', code: 'SKG')
+txl = Airport.create(name: 'Berlin', code: 'TXL')
+
+
+Flight.create(start_airport_id: lhr.id, finish_airport_id: pmo.id, date_time: '2020-08-21 15:30:00', duration: 173)
+Flight.create(start_airport_id: lhr.id, finish_airport_id: skg.id, date_time: '2020-08-21 15:30:00', duration: 300)
+Flight.create(start_airport_id: lhr.id, finish_airport_id: txl.id, date_time: '2020-08-21 15:30:00', duration: 110)
+Flight.create(start_airport_id: pmo.id, finish_airport_id: skg.id, date_time: '2020-08-21 15:30:00', duration: 050)
+Flight.create(start_airport_id: pmo.id, finish_airport_id: txl.id, date_time: '2020-08-21 15:30:00', duration: 215)
+Flight.create(start_airport_id: skg.id, finish_airport_id: txl.id, date_time: '2020-08-21 15:30:00', duration: 210)
+Flight.create(start_airport_id: txl.id, finish_airport_id: skg.id, date_time: '2020-08-21 15:30:00', duration: 210)
+Flight.create(start_airport_id: txl.id, finish_airport_id: pmo.id, date_time: '2020-08-21 15:30:00', duration: 215)
+Flight.create(start_airport_id: txl.id, finish_airport_id: lhr.id, date_time: '2020-08-21 15:30:00', duration: 110)
+Flight.create(start_airport_id: skg.id, finish_airport_id: pmo.id, date_time: '2020-08-21 15:30:00', duration: 050)
+Flight.create(start_airport_id: skg.id, finish_airport_id: lhr.id, date_time: '2020-08-21 15:30:00', duration: 300)
+Flight.create(start_airport_id: pmo.id, finish_airport_id: lhr.id, date_time: '2020-08-21 15:30:00', duration: 173)
