@@ -7,7 +7,7 @@ Flight Booker is part of The Odin Project's Ruby on Rails Curriculum (http://www
 
 ## Progress
 
-The search feature has been implemented. Users can not yet select flights or provide passenger information.
+The search feature has been implemented. Users can not yet select flights or provide passenger information. 
 
 
 ## How to Use
